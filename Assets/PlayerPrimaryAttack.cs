@@ -21,7 +21,7 @@ public class PlayerPrimaryAttack : PlayerState
     public override void Update()
     {
         base.Update();
-        if (stateTimer < 0) player.rigidBody.velocity = Vector2.zero;
+        if (stateTimer < 0) player.ZeroVelocity();
         if (triggerCalled) stateMachine.ChangeState(player.idleState);
     }
 
