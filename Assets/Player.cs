@@ -1,8 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    [Header("Attack details")] 
+    public float[] attackMovement;
+    
+    public bool isBusy { get; private set; }
     [Header("Move Info")] 
     public float moveSpeed = 12f;
     public float jumpForce = 12f;
@@ -68,6 +72,13 @@ public class Player : MonoBehaviour
     {
         stateMachine.currentState.Update();
         CheckDashInput();
+    }
+
+    public IEnumerator BusyFor(float _seconds)
+    {
+        isBusy = true;
+        yield return new WaitForSeconds(_seconds);
+        isBusy = false;
     }
 
     private void CheckDashInput()

@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerPrimaryAttack : PlayerState
@@ -15,6 +14,7 @@ public class PlayerPrimaryAttack : PlayerState
         base.Enter();
         if (comboCounter > 2 || Time.time >=  lasTimerAttacked + comboWindow) comboCounter = 0;
         player.animator.SetInteger("ComboCounter", comboCounter);
+        player.SetVelocity(player.attackMovement[comboCounter] * player.facingDirection, player.rigidBody.velocity.y);
         stateTimer = .1f;
     }
 
@@ -28,6 +28,7 @@ public class PlayerPrimaryAttack : PlayerState
     public override void Exit()
     {
         base.Exit();
+        player.StartCoroutine("BusyFor", .2f);
         comboCounter++;
         lasTimerAttacked = Time.time;
     }
