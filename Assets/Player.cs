@@ -4,7 +4,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Attack details")] 
-    public float[] attackMovement;
+    public Vector2[] attackMovement;
     
     public bool isBusy { get; private set; }
     [Header("Move Info")] 

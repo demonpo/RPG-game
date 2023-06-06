@@ -14,7 +14,7 @@ public class PlayerPrimaryAttack : PlayerState
         base.Enter();
         if (comboCounter > 2 || Time.time >=  lasTimerAttacked + comboWindow) comboCounter = 0;
         player.animator.SetInteger("ComboCounter", comboCounter);
-        player.SetVelocity(player.attackMovement[comboCounter] * player.facingDirection, player.rigidBody.velocity.y);
+        player.SetVelocity(player.attackMovement[comboCounter].x * player.facingDirection, player.attackMovement[comboCounter].y);
         stateTimer = .1f;
     }
 
