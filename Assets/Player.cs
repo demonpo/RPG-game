@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     public PlayerDashState dashState { get; private set; }
     public PlayerWallSlideState wallSlideState { get; private set; }
     public PlayerWallJumpState wallJumpState { get; private set; }
-    public PlayerPrimaryAttack primaryAttackState { get; private set; }
+    public PlayerPrimaryAttackState primaryAttackStateState { get; private set; }
     
     #endregion
     private void Awake()
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         dashState = new PlayerDashState(this, stateMachine, "Dash");
         wallSlideState = new PlayerWallSlideState(this, stateMachine, "WallSlide");
         wallJumpState = new PlayerWallJumpState(this, stateMachine, "Jump");
-        primaryAttackState = new PlayerPrimaryAttack(this, stateMachine, "Attack");
+        primaryAttackStateState = new PlayerPrimaryAttackState(this, stateMachine, "Attack");
     }
 
     // Start is called before the first frame update
